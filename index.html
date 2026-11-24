@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'">
+<title>D20 MP3 Converter</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="clean/ui.css">
+<link rel="stylesheet" href="clean/picker.css">
+</head>
+<body>
+<main id="app">
+  <aside id="side">
+    <section>
+      <h2>Input</h2>
+      <div class="btnrow">
+        <button id="btn-add-files">Add files</button>
+        <button id="btn-add-folder">Add folder</button>
+        <span class="grow"></span>
+        <button id="btn-clear" class="quiet">Clear</button>
+      </div>
+      <div id="inputs"><div class="hint">Drop music files or folders anywhere in this window.</div></div>
+    </section>
+    <section>
+      <h2>Output folder</h2>
+      <div class="btnrow">
+        <input id="out-path" type="text" spellcheck="false" placeholder="Same folder as each source file">
+        <button id="btn-out">Browse</button>
+      </div>
+      <div class="hint">Leave empty to write each MP3 next to its source file. Originals are never changed, moved or deleted. Existing files are never overwritten.</div>
+    </section>
+    <section>
+      <h2>Output profile</h2>
+      <div id="opts"></div>
+      <div class="hint">Always: MP3, stereo, ID3v2.3 tags, cover as baseline JPEG up to 500x500 and 200 KB, FAT32-safe names, files under 4 GB.</div>
+    </section>
+  </aside>
+  <section id="work">
+    <div id="toolbar">
+      <button id="btn-start" class="primary">Start</button>
+      <button id="btn-dry">Dry run</button>
+      <button id="btn-cancel" class="danger" disabled>Cancel</button>
+      <div id="overall"><div id="overall-bar"></div><span id="overall-text">Idle</span></div>
+    </div>
+    <div id="summary"></div>
+    <div id="thead"><span class="c-n">#</span><span class="c-name">File</span><span class="c-src">Source</span><span class="c-act">Action</span><span class="c-st">Status</span><span class="c-x"></span></div>
+    <div id="rows"><div class="empty">Nothing queued. Add files or a folder, then Start or Dry run.</div></div>
+  </section>
+</main>
+<script src="clean/picker.js"></script>
+<script src="clean/ui.js"></script>
+<script src="renderer.js"></script>
+</body>
+</html>

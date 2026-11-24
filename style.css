@@ -1,0 +1,68 @@
+:root { --bg: #0a0a0c; --panel: #0f0f13; --panel2: #15151b; --line: #22222c; --line2: #2e2e3a; --text: #e8e8f0; --dim: #8a8a9c; --faint: #5a5a70; --accent: #e8ff47; --ok: #5dd68a; --warn: #ffb547; --err: #ff4757; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--text); font: 13px "Segoe UI", system-ui, sans-serif; overflow: hidden; user-select: none; }
+#app { display: flex; height: 100%; }
+#side { width: 380px; flex: none; overflow-y: auto; background: var(--panel); border-right: 1px solid var(--line); padding: 4px 14px 14px; }
+#side section { padding: 12px 0; border-bottom: 1px solid var(--line); }
+#side section:last-child { border-bottom: none; }
+h2 { margin: 0 0 8px; font: 700 11px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.btnrow { display: flex; gap: 6px; align-items: center; }
+.grow { flex: 1; }
+.hint { color: var(--faint); font-size: 11.5px; line-height: 1.45; margin-top: 8px; }
+button { background: var(--panel2); color: var(--text); border: 1px solid var(--line2); border-radius: 5px; padding: 6px 12px; font: inherit; cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: 0.4; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #0a0a0c; font-weight: 700; }
+button.primary:hover:not(:disabled) { filter: brightness(1.08); }
+button.danger:not(:disabled) { border-color: var(--err); color: var(--err); }
+button.quiet { background: transparent; border-color: transparent; color: var(--dim); }
+input[type=text], select { background: #07070a; color: var(--text); border: 1px solid var(--line2); border-radius: 5px; padding: 6px 8px; font: 12px Consolas, "Cascadia Mono", monospace; min-width: 0; }
+input[type=text] { flex: 1; user-select: text; }
+input[type=text]:focus, select:focus { outline: none; border-color: var(--accent); }
+#inputs { margin-top: 8px; max-height: 150px; overflow-y: auto; }
+.in { display: flex; align-items: center; gap: 6px; padding: 3px 0; font: 12px Consolas, "Cascadia Mono", monospace; }
+.in .kind { color: var(--accent); width: 44px; flex: none; font-size: 10px; letter-spacing: 0.1em; }
+.in .p { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: rtl; text-align: left; }
+.in button { padding: 0 6px; border: none; background: transparent; color: var(--faint); }
+.in button:hover { color: var(--err); }
+.opt { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.opt label { flex: 1; color: var(--text); }
+.opt select { width: 168px; flex: none; }
+.opt.chk label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.opt input[type=checkbox] { accent-color: var(--accent); width: 14px; height: 14px; margin: 0; }
+.optsep { height: 8px; }
+#work { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+#toolbar { display: flex; gap: 8px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+#overall { flex: 1; position: relative; height: 30px; background: #07070a; border: 1px solid var(--line2); border-radius: 5px; overflow: hidden; }
+#overall-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: rgba(232, 255, 71, 0.22); border-right: 2px solid var(--accent); transition: width 0.15s linear; }
+#overall-text { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 10px; font: 12px Consolas, "Cascadia Mono", monospace; color: var(--text); white-space: nowrap; }
+#summary { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px; }
+#summary:not(:empty) { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.chip { border: 1px solid var(--line2); border-radius: 12px; padding: 2px 10px; font: 11.5px Consolas, "Cascadia Mono", monospace; color: var(--dim); cursor: pointer; background: transparent; }
+.chip b { color: var(--text); margin-right: 5px; }
+.chip.on { border-color: var(--accent); color: var(--accent); }
+.chip.failed b { color: var(--err); } .chip.converted b, .chip.retagged b, .chip.copied b { color: var(--ok); } .chip.mismatch b, .chip.cancelled b { color: var(--warn); }
+#thead, .row { display: grid; grid-template-columns: 44px minmax(0, 2.2fr) minmax(0, 1.2fr) 86px minmax(0, 1.5fr) 30px; gap: 10px; align-items: center; padding: 0 14px; }
+#thead { height: 28px; color: var(--faint); font: 700 10px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+#rows { flex: 1; overflow-y: auto; }
+.empty { color: var(--faint); padding: 40px 14px; text-align: center; }
+.row { min-height: 34px; padding-top: 5px; padding-bottom: 5px; border-bottom: 1px solid #16161c; position: relative; }
+.row > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .c-n { color: var(--faint); font: 11px Consolas, monospace; }
+.row .c-name small { display: block; color: var(--faint); font: 11px Consolas, monospace; overflow: hidden; text-overflow: ellipsis; }
+.row .c-src { color: var(--dim); font: 11px Consolas, monospace; }
+.row .c-act { font: 700 10px Consolas, monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.row .c-st { font-size: 12px; color: var(--dim); white-space: normal; }
+.row .bar { height: 5px; background: #1c1c24; border-radius: 3px; overflow: hidden; margin-top: 3px; display: none; }
+.row .bar i { display: block; height: 100%; width: 0; background: var(--accent); }
+.row.active .bar { display: block; }
+.row.active .c-st { color: var(--accent); }
+.row.converted .c-st, .row.retagged .c-st, .row.copied .c-st { color: var(--ok); }
+.row.failed .c-st { color: var(--err); } .row.cancelled .c-st, .row.mismatch .c-st { color: var(--warn); } .row.skipped .c-st { color: var(--faint); }
+.row .c-x button { padding: 0 6px; border: none; background: transparent; color: var(--faint); font-size: 14px; visibility: hidden; }
+.row.active .c-x button, .row.queued .c-x button { visibility: visible; }
+.row .c-x button:hover { color: var(--err); }
+#rows.filtered .row:not(.show) { display: none; }
+body.dragging #work { outline: 2px dashed var(--accent); outline-offset: -6px; }
+::-webkit-scrollbar { width: 9px; } ::-webkit-scrollbar-thumb { background: #2a2a36; border-radius: 4px; }

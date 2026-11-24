@@ -1,0 +1,34 @@
+:root { --cu-top: 34px; --accent: #e8ff47; }
+body.cu-on { padding-top: var(--cu-top) !important; box-sizing: border-box; }
+.cu-titlebar { -webkit-app-region: drag; position: fixed; top: 0; left: 0; right: 0; height: var(--cu-top); z-index: 9000; display: flex; align-items: center; background: #0f0f13; border-bottom: 1px solid #22222c; font: 12px "Segoe UI", system-ui, sans-serif; color: #e8e8f0; user-select: none; }
+.cu-brand { display: flex; align-items: center; gap: 8px; padding-left: 12px; min-width: 200px; color: var(--accent); }
+.cu-brand svg { width: 18px; height: 18px; }
+.cu-name { font: 700 11px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.22em; }
+.cu-status { flex: 1; min-width: 0; text-align: center; color: #6c6c7e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 12px; }
+.cu-status.ok { color: #5dd68a; } .cu-status.warn { color: #ffb547; } .cu-status.error { color: #ff4757; } .cu-status.step { color: var(--accent); }
+.cu-ib, .cu-wb { -webkit-app-region: no-drag; background: transparent; border: none; color: #b8b8c6; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; position: relative; }
+.cu-ib { width: 34px; height: 100%; }
+.cu-ib:hover, .cu-wb:hover { background: #15151b; color: #fff; }
+.cu-ib.on { color: var(--accent); }
+.cu-wc { -webkit-app-region: no-drag; display: flex; height: 100%; }
+.cu-wb { width: 46px; height: 100%; }
+.cu-wb.cu-x:hover { background: #d4313f; }
+.cu-titlebar svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cu-brand svg { stroke-width: 2.4; }
+.cu-badge { display: none; position: absolute; top: 4px; right: 3px; min-width: 15px; height: 15px; padding: 0 4px; border-radius: 8px; background: #ff4757; color: #fff; font: 700 9px/15px Consolas, monospace; text-align: center; }
+.cu-badge.show { display: block; }
+.cu-log { position: fixed; top: var(--cu-top); right: 0; bottom: 0; width: 420px; z-index: 8900; display: flex; flex-direction: column; background: rgba(15, 15, 19, 0.97); border-left: 1px solid #22222c; box-shadow: -4px 0 18px rgba(0, 0, 0, 0.5); transform: translateX(100%); visibility: hidden; transition: transform 0.15s ease, visibility 0s linear 0.15s; font: 12px "Segoe UI", system-ui, sans-serif; color: #e8e8f0; }
+body.cu-logopen .cu-log { transform: translateX(0); visibility: visible; transition: transform 0.15s ease; }
+.cu-lhead { display: flex; align-items: center; gap: 6px; padding: 8px; border-bottom: 1px solid #22222c; }
+.cu-lcap { font: 700 11px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.cu-grow { flex: 1; }
+.cu-sel, .cu-mini { background: #15151b; color: #e8e8f0; border: 1px solid #2e2e3a; border-radius: 5px; padding: 2px 8px; font: 11px Consolas, "Cascadia Mono", monospace; cursor: pointer; }
+.cu-mini:hover, .cu-sel:hover { border-color: var(--accent); }
+.cu-list { flex: 1; min-height: 0; overflow-y: auto; padding: 6px 8px; background: #07070a; font: 11.5px/1.55 Consolas, "Cascadia Mono", monospace; user-select: text; }
+.cu-ln { white-space: pre-wrap; word-break: break-word; }
+.cu-tm { color: #44445a; margin-right: 8px; }
+.cu-ln.step { color: var(--accent); font-weight: 700; margin-top: 3px; }
+.cu-ln.ok { color: #5dd68a; } .cu-ln.warn { color: #ffb547; } .cu-ln.error { color: #ff4757; font-weight: 700; } .cu-ln.dim { color: #5a5a70; }
+.cu-list.only-problems .cu-ln:not(.warn):not(.error) { display: none; }
+.cu-list::-webkit-scrollbar { width: 8px; }
+.cu-list::-webkit-scrollbar-thumb { background: #2a2a36; border-radius: 4px; }

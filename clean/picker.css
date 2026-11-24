@@ -1,0 +1,47 @@
+.pk-back { position: fixed; inset: 0; z-index: 10000; background: rgba(0, 0, 0, 0.62); display: flex; align-items: center; justify-content: center; user-select: none; font: 13px/1.4 "Segoe UI", system-ui, sans-serif; color: #e8e8f0; }
+.pk-back[hidden] { display: none; }
+.pk-box { width: min(860px, 94vw); height: min(560px, 90vh); background: #0f0f13; border: 1px solid #2e2e3a; border-radius: 10px; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; overflow: hidden; }
+.pk-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px 8px 14px; border-bottom: 1px solid #22222c; }
+.pk-title { font: 700 11px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent, #e8ff47); }
+.pk-bar { display: flex; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #22222c; }
+.pk-path, .pk-name { flex: 1; min-width: 0; background: #15151b; color: #e8e8f0; border: 1px solid #2e2e3a; border-radius: 5px; padding: 6px 9px; font: 12px Consolas, "Cascadia Mono", monospace; user-select: text; outline: none; }
+.pk-path:focus, .pk-name:focus { border-color: var(--accent, #e8ff47); }
+.pk-ib { width: 30px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 1px solid transparent; border-radius: 5px; color: #b8b8c6; cursor: pointer; }
+.pk-ib:hover:not(:disabled) { background: #15151b; border-color: #2e2e3a; color: #fff; }
+.pk-ib:disabled { opacity: 0.3; cursor: default; }
+.pk-box svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.pk-body { flex: 1; min-height: 0; display: flex; }
+.pk-side { width: 170px; border-right: 1px solid #22222c; padding: 8px 6px; overflow-y: auto; }
+.pk-sh { font: 10px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #6c6c7e; padding: 10px 8px 4px; }
+.pk-place { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; background: transparent; border: none; border-radius: 5px; color: #d6d6de; padding: 5px 8px; cursor: pointer; font: inherit; }
+.pk-place:hover { background: #15151b; }
+.pk-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pk-cols, .pk-row { display: flex; align-items: center; gap: 10px; padding: 0 12px; }
+.pk-cols { height: 26px; border-bottom: 1px solid #22222c; font: 10px Consolas, "Cascadia Mono", monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #6c6c7e; }
+.c-name { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-size { width: 78px; text-align: right; font: 11px Consolas, "Cascadia Mono", monospace; color: #8a8a9c; }
+.c-date { width: 150px; font: 11px Consolas, "Cascadia Mono", monospace; color: #8a8a9c; }
+.pk-list { flex: 1; min-height: 0; overflow-y: auto; }
+.pk-row { height: 28px; cursor: pointer; border-left: 3px solid transparent; }
+.pk-row:hover { background: #15151b; }
+.pk-row.sel { background: rgba(232, 255, 71, 0.1); border-left-color: var(--accent, #e8ff47); }
+.pk-empty { color: #6c6c7e; font: 11px Consolas, "Cascadia Mono", monospace; text-align: center; padding: 30px 0; }
+.pk-foot { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-top: 1px solid #22222c; }
+.pk-foot .pk-name { flex: 0 0 240px; }
+.pk-info { flex: 1; min-width: 0; font: 11px Consolas, "Cascadia Mono", monospace; color: #6c6c7e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pk-info.bad { color: #ff4757; }
+.pk-btn { padding: 7px 16px; border: 1px solid #2e2e3a; border-radius: 5px; background: #15151b; color: #e8e8f0; font: 600 12px "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.pk-btn:hover:not(:disabled) { border-color: var(--accent, #e8ff47); }
+.pk-btn:disabled { opacity: 0.35; cursor: default; }
+.pk-primary { background: var(--accent, #e8ff47); color: #0a0a0c; border-color: var(--accent, #e8ff47); font-weight: 800; }
+.pk-list::-webkit-scrollbar, .pk-side::-webkit-scrollbar { width: 8px; }
+.pk-list::-webkit-scrollbar-thumb, .pk-side::-webkit-scrollbar-thumb { background: #2a2a36; border-radius: 4px; }
+.pk-row.dim { opacity: 0.45; cursor: default; }
+.pk-row.dim:hover { background: transparent; }
+.pk-chk { display: inline-flex; align-items: center; gap: 6px; color: #b8b8c6; font: 12px "Segoe UI", system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
+.pk-ask { width: min(480px, 92vw); height: auto; }
+.pk-askbody { padding: 18px 18px 10px; }
+.pk-askmsg { font-size: 14px; font-weight: 600; margin-bottom: 6px; word-break: break-word; }
+.pk-askdet { color: #9a9ab0; font-size: 12.5px; line-height: 1.5; }
+.pk-danger { background: #ff4757; color: #fff; border-color: #ff4757; font-weight: 800; }
+.pk-place { justify-content: flex-start; }
